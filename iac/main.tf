@@ -29,10 +29,6 @@ resource "aws_s3_bucket_object" "codigo_spark" {
 
 }
 
-provider "aws" {
-  region = "us-east-1"
-}
-
 # Comandos terraform
 
 # terraform init
