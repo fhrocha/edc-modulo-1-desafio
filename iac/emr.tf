@@ -12,13 +12,13 @@ resource "aws_emr_cluster" "cluster" {
 
   master_instance_group {
     instance_type = "m5.xlarge"
-    bid_price     = "OnDemandPrice"
+    bid_price = 0.068
   }
 
   core_instance_group {
     instance_count = 1
     instance_type  = "m5.xlarge"
-    bid_price      = "OnDemandPrice"
+    bid_price = 0.068
   }
 
   tags = {
