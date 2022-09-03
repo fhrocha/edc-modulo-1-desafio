@@ -28,6 +28,12 @@ resource "aws_emr_cluster" "cluster" {
     name     = "name-env"
   }
 
+  bootstrap_action {
+    path = "s3://emr-edc-producao-422471183879/bootstrap-action/run-if"
+    name = "runif"
+    args = ["instance.isMaster=true", "echo running on master node"]
+  }
+
   configurations_json = <<EOF
   [
     {
