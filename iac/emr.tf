@@ -2,7 +2,7 @@ resource "aws_emr_cluster" "cluster" {
   name          = "emr-edc-producao-422471183879"
   release_label = "emr-6.3.0"
   applications  = ["Spark", "Hadoop", "Hive", "Pig", "Hue", "JupyterHub", "JupyterEnterpriseGateway", "Livy"]
-  
+
   ec2_attributes {
     subnet_id                         = aws_subnet.main.id
     emr_managed_master_security_group = aws_security_group.allow_access.id
@@ -26,6 +26,12 @@ resource "aws_emr_cluster" "cluster" {
     dns_zone = "env_zone"
     env      = "env"
     name     = "name-env"
+  }
+
+  bootstrap_action {
+    path = "s3://emr-edc-producao-422471183879/bootstrap_action/run-if"
+    name = "runif"
+    args = ["instance.isMaster=true", "echo running on master node"]
   }
 
   configurations_json = <<EOF
