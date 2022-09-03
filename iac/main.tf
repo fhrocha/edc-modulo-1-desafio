@@ -15,7 +15,6 @@ resource "aws_s3_bucket" "datalake" {
     IES   = "IGTI",
     CURSO = "EDC"
   }
-
 }
 
 resource "aws_s3_bucket_object" "codigo_spark" {
