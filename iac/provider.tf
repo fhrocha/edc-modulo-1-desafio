@@ -4,9 +4,9 @@ provider "aws" {
 
 # Center state control file terraform
 terraform {
-  backend "s3"{
+  backend "s3" {
     bucket = "terraform-edc-producao-422471183879"
-    key = "state/igti-edc/modulo1/desafio/terraform.tfstate"
+    key    = "state/igti-edc/modulo1/desafio/terraform.tfstate"
     region = "us-east-1"
   }
 }
