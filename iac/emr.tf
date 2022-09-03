@@ -2,7 +2,7 @@ resource "aws_emr_cluster" "cluster" {
   name          = "emr-edc-producao-422471183879"
   release_label = "emr-6.3.0"
   applications  = ["Spark", "Hadoop", "Hive", "Pig", "Hue", "JupyterHub", "JupyterEnterpriseGateway", "Livy"]
-
+  
   ec2_attributes {
     subnet_id                         = aws_subnet.main.id
     emr_managed_master_security_group = aws_security_group.allow_access.id
@@ -12,13 +12,13 @@ resource "aws_emr_cluster" "cluster" {
 
   master_instance_group {
     instance_type = "m5.xlarge"
-    bid_price = 0.068
+    bid_price     = ""
   }
 
   core_instance_group {
     instance_count = 1
     instance_type  = "m5.xlarge"
-    bid_price = 0.068
+    bid_price      = ""
   }
 
   tags = {
@@ -124,7 +124,7 @@ resource "aws_route_table" "r" {
 }
 
 resource "aws_main_route_table_association" "a" {
-  vpc_id = aws_vpc.main.id
+  vpc_id         = aws_vpc.main.id
   route_table_id = aws_route_table.r.id
 }
 

@@ -13,3 +13,7 @@ variable "numero_conta" {
 variable "aws_region" {
   default = "us-east-1"
 }
+
+variable "prefix" {
+  default = "edc-rais"
+}
