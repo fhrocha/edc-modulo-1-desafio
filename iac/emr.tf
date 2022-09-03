@@ -1,6 +1,6 @@
 resource "aws_emr_cluster" "cluster" {
   name          = "emr-edc-producao-422471183879"
-  release_label = "emr-4.6.0"
+  release_label = "emr-6.3.0"
   applications  = ["Spark", "Hadoop", "Hive", "Pig", "Hue", "JupyterHub", "JupyterEnterpriseGateway", "Livy"]
 
   ec2_attributes {
@@ -33,35 +33,6 @@ resource "aws_emr_cluster" "cluster" {
     name = "runif"
     args = ["instance.isMaster=true", "echo running on master node"]
   }
-
-  configurations_json = <<EOF
-  [
-    {
-      "Classification": "hadoop-env",
-      "Configurations": [
-        {
-          "Classification": "export",
-          "Properties": {
-            "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-          }
-        }
-      ],
-      "Properties": {}
-    },
-    {
-      "Classification": "spark-env",
-      "Configurations": [
-        {
-          "Classification": "export",
-          "Properties": {
-            "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-          }
-        }
-      ],
-      "Properties": {}
-    }
-  ]
-EOF
 
   service_role = aws_iam_role.iam_emr_service_role.arn
 }
