@@ -15,18 +15,31 @@ resource "aws_s3_bucket" "datalake" {
     IES   = "IGTI",
     CURSO = "EDC"
   }
-
 }
 
 resource "aws_s3_bucket_object" "codigo_spark" {
 
   bucket = aws_s3_bucket.datalake.id
-  key    = "emr-code/pyspark/job_spark_from_tf.py"
+  key    = "emr-code/pyspark/job_spark.py"
   acl    = "private"
-  source = "../job_spark.py"
-  etag   = filemd5("../job_spark.py")
+  source = "../job/job_spark.py"
+  etag   = filemd5("../job/job_spark.py")
+}
 
+resource "aws_s3_bucket_object" "arquivos_rais" {
 
+  bucket = aws_s3_bucket.datalake.id
+  key    = "raw_data/rais/"
+  acl    = "private"
+  source = "/dev/null"
+}
+
+resource "aws_s3_bucket_object" "staging" {
+
+  bucket = aws_s3_bucket.datalake.id
+  key    = "staging/rais/"
+  acl    = "private"
+  source = "/dev/null"
 }
 
 # Comandos terraform
