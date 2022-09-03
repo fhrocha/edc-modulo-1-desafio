@@ -29,7 +29,7 @@ resource "aws_emr_cluster" "cluster" {
   }
 
   bootstrap_action {
-    path = "s3://emr-edc-producao-422471183879/bootstrap-action/run-if"
+    path = "s3://elasticmapreduce/bootstrap-actions/run-if"
     name = "runif"
     args = ["instance.isMaster=true", "echo running on master node"]
   }
