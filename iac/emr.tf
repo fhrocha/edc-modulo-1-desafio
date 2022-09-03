@@ -42,7 +42,7 @@ resource "aws_emr_cluster" "cluster" {
         {
           "Classification": "export",
           "Properties": {
-            "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+            "JAVA_HOME": "java-1.8.0-amazon-corretto.x86_64"
           }
         }
       ],
@@ -54,7 +54,7 @@ resource "aws_emr_cluster" "cluster" {
         {
           "Classification": "export",
           "Properties": {
-            "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+            "JAVA_HOME": "/usr/lib/jvm/java-1.8.0-amazon-corretto.x86_64"
           }
         }
       ],
