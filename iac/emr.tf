@@ -1,6 +1,6 @@
 resource "aws_emr_cluster" "cluster" {
   name          = "emr-edc-producao-422471183879"
-  release_label = "emr-6.3.0"
+  release_label = "emr-4.6.0"
   applications  = ["Spark", "Hadoop", "Hive", "Pig", "Hue", "JupyterHub", "JupyterEnterpriseGateway", "Livy"]
 
   ec2_attributes {
@@ -42,7 +42,7 @@ resource "aws_emr_cluster" "cluster" {
         {
           "Classification": "export",
           "Properties": {
-            "JAVA_HOME": "java-1.8.0-amazon-corretto.x86_64"
+            "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
           }
         }
       ],
@@ -54,7 +54,7 @@ resource "aws_emr_cluster" "cluster" {
         {
           "Classification": "export",
           "Properties": {
-            "JAVA_HOME": "/usr/lib/jvm/java-1.8.0-amazon-corretto.x86_64"
+            "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
           }
         }
       ],
