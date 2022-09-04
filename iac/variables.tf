@@ -3,7 +3,7 @@ variable "base_bucket_name" {
 }
 
 variable "ambiente" {
-  default = "prod"
+  default = "producao"
 }
 
 variable "numero_conta" {
