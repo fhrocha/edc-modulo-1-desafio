@@ -6,7 +6,7 @@ provider "aws" {
 terraform {
   backend "s3" {
     bucket = "terraform-edc-producao-422471183879"
-    key    = "state/igti-edc/modulo1/desafio/terraform.tfstate"
+    key    = "state/edc/producao/terraform.tfstate"
     region = "us-east-1"
   }
 }
