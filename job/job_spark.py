@@ -6,7 +6,7 @@ java_import(spark._sc._jvm, "org.apache.spark.sql.api.python.*")
 rais = (
     spark
     .read
-    .csv("s3://datalake-edc-prod-422471183879/raw-data/rais/", inferSchema=True, header=True, sep=';', encoding="latin1")
+    .csv("s3://datalake-edc-422471183879/raw-data/rais/", inferSchema=True, header=True, sep=';', encoding="latin1")
 )
 
 rais.select(rais.columns[7]).show(10)
@@ -111,7 +111,7 @@ rais = (
     .write.mode('overwrite')
     .partitionBy('ano', 'uf')
     .format('parquet')
-    .save('s3://datalake-edc-producao-422471183879/staging/rais/')
+    .save('s3://datalake-edc-prod-422471183879/staging/rais/')
 )
 
 spark.stop()
