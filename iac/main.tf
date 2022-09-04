@@ -26,13 +26,13 @@ resource "aws_s3_bucket_object" "codigo_spark" {
   etag   = filemd5("../job/job_spark.py")
 }
 
-#resource "aws_s3_bucket_object" "arquivos_rais" {
-#
-#  bucket = aws_s3_bucket.datalake.id
-#  key    = "raw_data/rais/"
-#  acl    = "private"
-#  source = "/dev/null"
-#}
+resource "aws_s3_bucket_object" "arquivos_rais" {
+
+  bucket = aws_s3_bucket.datalake.id
+  key    = "raw_data/rais/"
+  acl    = "private"
+  source = "/dev/null"
+}
 
 resource "aws_s3_bucket_object" "staging" {
 

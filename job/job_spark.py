@@ -111,7 +111,7 @@ rais = (
     .write.mode('overwrite')
     .partitionBy('ano', 'uf')
     .format('parquet')
-    .save('s3://datalake-edc-prod-422471183879/staging/rais/')
+    .save('s3://datalake-edc-producao-422471183879/staging/rais/')
 )
 
 spark.stop()
